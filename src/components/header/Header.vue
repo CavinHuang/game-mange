@@ -1,17 +1,27 @@
 <template>
   <div class="page-header">
-    <div class="header-logo">
-      <img src="https://www.game4y.com/static/game4y/img/head_logo_4y.png" alt="logo" />
-    </div>
-    <nav class="header-nav">
-      <a v-for="(item, index) in navs" :key="'nav' + index" :href="item.url" class="nav-item">{{ item.text }}</a>
-    </nav>
-
-    <div class="header-search">
-      <input type="text" class="search-input" />
-      <button class="search-button">
+    <div class="page-header-container container-box">
+      <div class="header-logo">
         <img
-          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAe
+          src="https://www.game4y.com/static/game4y/img/head_logo_4y.png"
+          alt="logo"
+        />
+      </div>
+      <nav class="header-nav">
+        <a
+          v-for="(item, index) in navs"
+          :key="'nav' + index"
+          :href="item.url"
+          class="nav-item"
+          >{{ item.text }}</a
+        >
+      </nav>
+
+      <div class="header-search">
+        <input type="text" class="search-input" />
+        <button class="search-button">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAe
                     CAYAAAA7MK6iAAADbklEQVRIib3WW4hVVRzH8c+Ml5lJx0QlY7oaRRRExorKoowuVERvktBTgawieooeeuxCEOVDQQ+1A+0lgpKU
                     XgQnKYQMyv2gBRGiRFFZ3s0przM9/NdxtmeOM+kc+sGCDXuv/V3/2/r/e4aGhkyhy3A3bsVVuAhjOIY9+B5fY0fOeWyqn7XUMwn4
                     OqzCPVhQYGPoKav5/A++w9qc8+bpgFfhaczDcczGKezHQZzGHCzC3PKut+xdjzdyzofPBzwLr2AF/kZfgW3CMHYV8CgGRBhux6O4C
@@ -24,68 +34,69 @@
                     Izj+EB40PgTDEADmBNznn1VGDF2lfxsEiO1q1zQIw/+0U+zBMt9VLhlZMFtA07RVYfF+Gr2uHN0ael49hYIFfgkgLvK5BryhoSE2Z
                     vAe/DWryUc95U13U/lolRalld130ppa2TWdxUP+7FgyJhFpUDtKaLI6IDbcFwzvmP5uaqql5ALvC5TcunAjc1UKyfY3yIP5BzPjTZ
                     pgZ8RMPtnVx9Lp0SbXNvWQdxLKU06aaU0ta6rvvE3TAixt7R3kl3dUnFve+L63gMK/8XcAP+luiGH/8LoygCwQXaM2kAAAAASUVORK5CYII="
-          alt=""
-        />
-      </button>
+            alt=""
+          />
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-  defineOptions({
-    name: 'CommonHeader'
-  });
+defineOptions({
+  name: 'CommonHeader'
+})
 
-  const navs = [
-    {
-      url: '/',
-      text: 'HOT'
-    },
-    {
-      url: '/',
-      text: 'HOT'
-    },
-    {
-      url: '/',
-      text: 'New'
-    },
-    {
-      url: '/',
-      text: 'Girl'
-    },
-    {
-      url: '/',
-      text: 'Boy'
-    },
-    {
-      url: '/',
-      text: 'Kid'
-    },
-    {
-      url: '/',
-      text: 'Shooting'
-    },
-    {
-      url: '/',
-      text: 'Running'
-    },
-    {
-      url: '/',
-      text: 'Sports'
-    },
-    {
-      url: '/',
-      text: '3D Games'
-    },
-    {
-      url: '/',
-      text: 'More'
-    },
-    {
-      url: '/',
-      text: 'tags'
-    }
-  ];
+const navs = [
+  {
+    url: '/',
+    text: 'HOT'
+  },
+  {
+    url: '/',
+    text: 'HOT'
+  },
+  {
+    url: '/',
+    text: 'New'
+  },
+  {
+    url: '/',
+    text: 'Girl'
+  },
+  {
+    url: '/',
+    text: 'Boy'
+  },
+  {
+    url: '/',
+    text: 'Kid'
+  },
+  {
+    url: '/',
+    text: 'Shooting'
+  },
+  {
+    url: '/',
+    text: 'Running'
+  },
+  {
+    url: '/',
+    text: 'Sports'
+  },
+  {
+    url: '/',
+    text: '3D Games'
+  },
+  {
+    url: '/',
+    text: 'More'
+  },
+  {
+    url: '/',
+    text: 'tags'
+  }
+]
 </script>
 
 <style lang="scss" scoped src="./header.scss"></style>

@@ -1,4 +1,15 @@
+body {
+  font-size: 12px;
+  font-family: Myriad Set Pro,Arial,Helvetica,sans-serif;
+  color: #666;
+  background-color: #00547c;
+  line-height: 22px;
+  height: 100%;
+}
+
 .container{ max-width: 1200px;}
 .container-box {
   min-width: 1200px;
+  max-width: 1200px;
+  margin: 0 auto;
 }

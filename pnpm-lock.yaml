@@ -23,6 +23,7 @@ specifiers:
   koa-connect: ^2.1.0
   koa-send: ^5.0.1
   lint-staged: ^12.3.7
+  lodash.debounce: ^4.0.8
   pinia: ^2.0.13
   prettier: ^2.6.2
   sass: ^1.52.2
@@ -41,6 +42,7 @@ dependencies:
   koa: 2.13.4
   koa-connect: 2.1.0
   koa-send: 5.0.1
+  lodash.debounce: 4.0.8
   pinia: 2.0.13_hhks2xcoho7x4jrwn5stbz36vy
   scss-reset: 1.2.2
   unplugin-vue-define-options: 0.6.1_vite@2.9.1+vue@3.2.31
@@ -2713,6 +2715,10 @@ packages:
   /lodash.clonedeep/4.5.0:
     resolution: {integrity: sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=}
     dev: true
+
+  /lodash.debounce/4.0.8:
+    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
+    dev: false
 
   /lodash.map/4.6.0:
     resolution: {integrity: sha1-dx7Hg540c9nEzeKLGTlMNWL09tM=}

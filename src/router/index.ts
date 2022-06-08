@@ -16,6 +16,16 @@ export const createRouter = (type: 'client' | 'server'): Router =>
         component: () => import('@/pages/home/index.vue')
       },
       {
+        path: '/detail',
+        name: 'detail',
+        meta: {
+          title: '详情',
+          keepAlive: true,
+          requireAuth: true
+        },
+        component: () => import('@/pages/detail/index.vue')
+      },
+      {
         path: '/login',
         name: 'login',
         meta: {

@@ -1,10 +1,10 @@
 <template>
-  <div class="FullScreenBox" style="">
+  <div class="FullScreenBox" :style="{ display: isShow ? 'block' : 'none' }">
     <div class="FullHead">
       <div class="FullLogo">
         <a href="//www.game4y.com">
           <img
-            src="/static/game4y/img/head_logo_4y.png"
+            src="//www.game4y.com/static/game4y/img/head_logo_4y.png"
             width="150"
             alt="Game4y logo"
           />
@@ -30,6 +30,10 @@
 <script lang="ts" setup>
 defineOptions({
   name: ''
+})
+
+defineProps({
+  isShow: Boolean
 })
 </script>
 

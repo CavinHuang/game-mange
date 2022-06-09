@@ -5,7 +5,11 @@
       <PortraitAd is-left />
       <GamePortraitList :games="left" />
       <div class="NewPlayGames">
-        <div class="NewGameInfo">
+        <GamePlayer :is-show="gamePlayerState" />
+        <div
+          class="NewGameInfo"
+          :style="{ display: gamePlayerState ? 'none' : 'block' }"
+        >
           <img
             src="https://www.game4y.com/images/games-scale/icon Bike Rush_副本.jpg"
             alt="Bike Rush Game"
@@ -19,16 +23,19 @@
               />
             </div>
             <h1>Bike Rush</h1>
-
             <a
               class="NewPlayGameBtn"
               href="javascript:void(0);"
               title="Play Bike Rush Game"
+              @click="gamePlayerState = true"
               >Play Game</a
             >
           </div>
         </div>
-        <div class="detailDescription row between">
+        <div
+          class="detailDescription row between"
+          :style="{ display: gamePlayerState ? 'none' : 'block' }"
+        >
           <div>
             <a
               href="javascript:void(0)"
@@ -61,7 +68,6 @@
               Add To Desktop</a
             >
           </div>
-
           <div class="GamesActions">
             <a
               href="javascript:void(0);"
@@ -144,8 +150,14 @@
 </template>
 
 <script lang="ts" setup>
-import { BannerAd, PortraitAd, GamePortraitList } from '@/components'
+import {
+  BannerAd,
+  PortraitAd,
+  GamePortraitList,
+  GamePlayer
+} from '@/components'
 import games from '@/components/game-layout/test'
+import { ref } from 'vue'
 
 defineOptions({
   name: 'pageDetail'
@@ -153,6 +165,7 @@ defineOptions({
 
 const left = games.slice(0, 6)
 const right = games.slice(7, 13)
+const gamePlayerState = ref(false)
 </script>
 
 <style lang="scss" scoped>
@@ -195,7 +208,7 @@ const right = games.slice(7, 13)
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
   }
   .NewGameInfoText {
     cursor: pointer;

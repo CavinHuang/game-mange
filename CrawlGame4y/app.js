@@ -3,6 +3,8 @@ const httpRequest = require('./request')
 const path = require('path')
 const fsExtra = require('fs-extra')
 
+const downloadHandle = require('./downloadResource')
+
 // axios.get('https://www.actiongameshub.com/').then((res) => {
 //   const $ = cheerio.load(res.data)
 //   getHomeHotList($)
@@ -37,7 +39,7 @@ function getHomeHotList($) {
   {
     "url": "${a.attr('href')}",
     "name": "${a.attr('title')}",
-    "cover": "${$(el).find('img').attr('src')}"
+    "cover": "${$(el).find('img').attr('data-src')}"
   },
     `
   }

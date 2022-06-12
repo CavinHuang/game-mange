@@ -2,9 +2,12 @@ const cheerio = require('cheerio')
 const httpRequest = require('./request')
 const path = require('path')
 const fsExtra = require('fs-extra')
+const Bagpipe = require('bagpipe')
+const getOneGameInfo = require('./getOneGameInfo')
 
-const downloadHandle = require('./downloadResource')
-
+const bagpipe = new Bagpipe(10, {
+  timeout: 1000
+})
 // axios.get('https://www.actiongameshub.com/').then((res) => {
 //   const $ = cheerio.load(res.data)
 //   getHomeHotList($)
@@ -16,6 +19,7 @@ saveContent('[')
 httpRequest('get', 'https://www.actiongameshub.com/')(responseHandler)
 
 function responseHandler(err, res) {
+  console.log('++++++', res, err)
   const $ = cheerio.load(
     res
       .replace(/<head>[\s\S]*?<\/head>/gi, '')
@@ -31,19 +35,15 @@ function responseHandler(err, res) {
 
 function getHomeHotList($) {
   const els = $('#container-fluid .grid-item')
-  let result = ''
   for (let i = 0; i < els.length; i++) {
     const el = els[i]
     const a = $(el).find('a')
-    result += `
-  {
-    "url": "${a.attr('href')}",
-    "name": "${a.attr('title')}",
-    "cover": "${$(el).find('img').attr('data-src')}"
-  },
-    `
+    bagpipe.push(fetchGameData, {
+      url: a.attr('href'),
+      name: a.attr('title'),
+      cover: $(el).find('img').attr('data-src')
+    })
   }
-  saveContent(result)
   loadMore()
 }
 
@@ -78,23 +78,33 @@ function responseMoreHandler(err, res) {
 
 function getMoreHotList($) {
   const els = $('li')
-  let result = ''
   for (let i = 0; i < els.length; i++) {
     const el = els[i]
     const a = $(el).find('a')
-    result += `
-  {
-    "url": "${a.attr('href')}",
-    "name": "${a.attr('title')}",
-    "cover": "${$(el).find('img').attr('data-src')}"
-  },
-    `
+    bagpipe.push(fetchGameData, {
+      url: a.attr('href'),
+      name: a.attr('title'),
+      cover: $(el).find('img').attr('data-src')
+    })
   }
-  saveContent(result)
   page = page + 1
   loadMore(page)
 }
 
 function saveContent(content) {
   fsExtra.appendFileSync(filePath, content)
+}
+
+function fetchGameData(item) {
+  let result = ''
+  getOneGameInfo('https:' +item.url, (iframe) => {
+    result += `
+  {
+    "url": "${item.url}",
+    "name": "${item.name}",
+    "cover": "${item.cover}",
+    "detail": "${iframe}"
+  },`
+    saveContent(result)
+  })
 }

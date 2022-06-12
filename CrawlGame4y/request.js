@@ -17,7 +17,7 @@ function httpRequest(method, url, data) {
             proxy
           },
           function (error, response, body) {
-            cb(null, body)
+            cb(error, body)
           }
         )
       } catch (err) {

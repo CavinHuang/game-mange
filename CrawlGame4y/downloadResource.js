@@ -58,10 +58,8 @@ const data = fsExtra.readFileSync(filePath)
 // )
 const items = JSON.parse(data)
 const len = items.length
-console.log(len)
 for (let i = 0; i < len; i++) {
   const { cover } = items[i]
-  console.log('cover', cover)
   bagpipe.push(downloadHandle, cover)
 }
 

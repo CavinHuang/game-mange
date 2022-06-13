@@ -1,5 +1,5 @@
 
-import { Server } from './serv'
+import { Server } from './server'
 
 import config from './config'
 

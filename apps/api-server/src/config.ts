@@ -1,18 +1,16 @@
-import { C ,G } from './libs/global'
+import { C ,G } from './core/global'
 
-import { dirRoutes, dirPublic } from './libs/global.dir';
+import { dirController, dirPublic } from './core/global.dir';
 import { resolve } from 'path'
 
-import initRoute from './libs/initRoute'
+import initRoute from './core/initRoute'
 
-import ParseExtra from './libs/mare/ParseExtra'
-import CheckPerm from './libs/mare/CheckPerm'
-import ParseCookies from './libs/mare/ParseCookies'
-import ResultParser from './libs/mare/ResultParser'
+import ParseExtra from './core/mare/ParseExtra'
+import CheckPerm from './core/mare/CheckPerm'
+import ParseCookies from './core/mare/ParseCookies'
+import ResultParser from './core/mare/ResultParser'
 
-
-const { faces, folds } = initRoute(dirRoutes)
-
+const { faces, folds } = initRoute(dirController)
 
 export default {
 	name: C.name,

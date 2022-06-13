@@ -1,4 +1,4 @@
-import { C } from '../libs/global'
+import { C } from '../core/global'
 import { resolve } from 'path'
 
 export default [

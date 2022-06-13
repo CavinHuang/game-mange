@@ -9,8 +9,8 @@ export const dirPublic = resolve(dirProject, 'public')
 export const dirSrc = resolve(dirProject, 'src')
 
 export const dirConfig = resolve(dirSrc, 'config')
-export const dirLibs = resolve(dirSrc, 'libs')
-export const dirRoutes = resolve(dirSrc, 'routes')
+export const dirCore = resolve(dirSrc, 'core')
+export const dirController = resolve(dirSrc, 'controller')
 
 
 

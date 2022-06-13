@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev:api": "pnpm --filter \"./apps/api-server\" watch-server",
     "dev:client": "pnpm --filter \"./apps/game-client\" dev",
     "eslint:comment": "使用 ESLint 检查并自动修复 src 目录下所有扩展名为 .js 和 .vue 的文件",
     "eslint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",

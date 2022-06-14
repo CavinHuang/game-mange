@@ -16,6 +16,8 @@
 		"skipLibCheck": true, //跳过d.ts声明文件的类型检查。
 		// 模块基本目录路径，./ 表示当前文件根
 		"baseUrl": "./",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
 		// 路径映射, 别名到基于baseUrl的路径，便于vscode之类IDE(集成开发环境)识别
 		"paths": {
 			"@/*": ["src/*"],

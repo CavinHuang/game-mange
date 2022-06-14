@@ -1,6 +1,6 @@
 import CR from 'crypto';
 
-import { C, DB } from '../global';
+import { C } from '../global';
 
 
 const initMareCheckPerm = ($) => {
@@ -40,7 +40,7 @@ const initMareCheckPerm = ($) => {
 			return ctx.body = { code: 400, message: '拒绝访问。登录信息与当前IP不匹配' };
 		}
 		else {
-			const token = await (await (await DB).pick()).queryOne('SELECT user_id FROM `t_token` WHERE delete_time IS NULL AND token=$ AND user_id=$', raw.token, idUserToken);
+			// const token = await (await (await DB).pick()).queryOne('SELECT user_id FROM `t_token` WHERE delete_time IS NULL AND token=$ AND user_id=$', raw.token, idUserToken);
 
 			if (!token) {
 				ctx.body = '拒绝访问。登录信息无效';

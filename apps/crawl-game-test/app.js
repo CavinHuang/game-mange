@@ -19,7 +19,6 @@ saveContent('[')
 httpRequest('get', 'https://www.actiongameshub.com/')(responseHandler)
 
 function responseHandler(err, res) {
-  console.log('++++++', res, err)
   const $ = cheerio.load(
     res
       .replace(/<head>[\s\S]*?<\/head>/gi, '')

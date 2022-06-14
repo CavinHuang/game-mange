@@ -50,7 +50,7 @@ app.use(async (ctx, next) => {
   console.log(ctx.url)
   if(ctx.url === '/mz/fetch') {
     const data = ctx.request.body;
-    const res = await createPromisefork('./child.js', data)
+    const res = await createPromisefork(resolve(__dirname, './child.js'), data)
     // 获取文件路径
     const txtUrls = [];
     let reg = /.*?(\d+)\.\w*$/;

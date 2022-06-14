@@ -31,5 +31,5 @@ export abstract class CoreController {
     Object.assign(this.apiOptions, option)
   }
 
-  public abstract handle(): unknown
+  public abstract handle(raw: any,  ctx, routeFinal, $): unknown
 }

@@ -1,5 +1,6 @@
-import Apify from 'apify'
-import fs from 'fs'
+const Apify  = require('apify')
+const fs = require('fs');
+const path = require('path');
 
 const urls = [
   'https://www.jd.com/?ds_rl=1272299&cu=true&utm_source=google-search&utm_medium=cpc&utm_campaign=t_262767352_googlesearch&utm_term=kwd-362776698237_0_bd6290d047e84576a5d6947ff0f8ecf1',
@@ -11,7 +12,7 @@ const urls = [
 function startCrawel(urls, cb) {
   Apify.main(async () => {
     // 启动一个浏览器
-    const browser = await Apify.launchPuppeteer({headless: true});
+    const browser = await Apify.launchPuppeteer();
     // 异步队列
     const queue = []
     // 最大并发数
@@ -144,9 +145,9 @@ function startCrawel(urls, cb) {
       });
 
       let uid = uuid(6, 10);
-      await fs.writeFileSync(`./db/${uid}.json`, JSON.stringify(txt))
+      await fs.writeFileSync(path.resolve(__dirname, `./db/${uid}.json`), JSON.stringify(txt))
 
-      const screenshot = await page.screenshot({path: `static/${uid}.jpg`, fullPage: true, quality: 70});
+      const screenshot = await page.screenshot({path: path.resolve(`static/${uid}.jpg`), fullPage: true, quality: 70});
     }
     
     // Save the screenshot to the default key-value store

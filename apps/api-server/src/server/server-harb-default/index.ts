@@ -169,7 +169,6 @@ async function ServerDefaultHarb($_) {
 
 
 	// 加载路由
-  console.log('++++++', router.routes)
 	koa.use(router.routes());
 }
 

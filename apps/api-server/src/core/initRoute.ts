@@ -1,6 +1,6 @@
 import { resolve, join, parse, sep, basename, posix } from 'path'
 import ReaddirRecur from 'fs-readdir-recursive'
-import { CoreController } from '../routes/CoreController'
+import { CoreController } from '../controller/CoreController'
 
 const initRoute = (pathAPP) => {
 	const faces = []
@@ -8,15 +8,12 @@ const initRoute = (pathAPP) => {
 
 	const filesAPP = ReaddirRecur(pathAPP)
 
-  console.log(filesAPP)
-
 	filesAPP.filter(file => file.endsWith('.api.ts')).forEach(async (fileAPI)=>{
 		const infoAPI = parse(fileAPI)
 		const pathAPI = join(pathAPP, fileAPI)
 
 		const api = await import(pathAPI)
 
-    console.log(api)
     let result: CoreController | null = null
     if (api.default) {
       result = new api.default()

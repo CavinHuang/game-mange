@@ -1,4 +1,4 @@
-import { C, DB, G } from '../libs/global'
+import { C, DB, G } from '../core/global'
 
 /** 转换时间格式 */
 export const formateDate = (datetime) => {

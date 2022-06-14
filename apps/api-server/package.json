@@ -14,6 +14,7 @@
     "@koa/cors": "^3.3.0",
     "@koa/multer": "^3.0.0",
     "chalk": "^4.1.2",
+    "co-body": "^6.1.0",
     "fs-extra": "^10.1.0",
     "fs-readdir-recursive": "^1.1.0",
     "joi": "^17.6.0",
@@ -35,16 +36,18 @@
     "nodemon": "^2.0.16",
     "redis": "^4.1.0",
     "reflect-metadata": "^0.1.13",
+    "streamroller": "^3.1.1",
     "ws": "^8.6.0"
   },
   "devDependencies": {
     "@types/koa": "^2.13.4",
-    "@types/koa__cors": "^3.3.0",
     "@types/koa-compress": "^4.0.3",
     "@types/koa-favicon": "^2.0.21",
     "@types/koa-router": "^7.4.4",
     "@types/koa-static": "^4.0.2",
+    "@types/koa__cors": "^3.3.0",
     "@types/mysql": "^2.15.21",
+    "@types/node": "*",
     "cross-env": "^7.0.3",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.4"

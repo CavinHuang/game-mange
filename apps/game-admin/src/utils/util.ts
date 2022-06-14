@@ -1,4 +1,4 @@
-import { isArray } from "@/utils/is";
+import { isArray } from '@/utils/is'
 
 /**
  * @description 获取localStorage
@@ -6,12 +6,12 @@ import { isArray } from "@/utils/is";
  * @returns {String} Storage值
  */
 export function localGet(key: string) {
-	const value = window.localStorage.getItem(key);
-	try {
-		return JSON.parse(window.localStorage.getItem(key) as string);
-	} catch (error) {
-		return value;
-	}
+  const value = window.localStorage.getItem(key)
+  try {
+    return JSON.parse(window.localStorage.getItem(key) as string)
+  } catch (error) {
+    return value
+  }
 }
 
 /**
@@ -20,7 +20,7 @@ export function localGet(key: string) {
  * @param value Storage值
  */
 export function localSet(key: string, value: any) {
-	window.localStorage.setItem(key, JSON.stringify(value));
+  window.localStorage.setItem(key, JSON.stringify(value))
 }
 
 /**
@@ -28,7 +28,7 @@ export function localSet(key: string, value: any) {
  * @param key Storage名称
  */
 export function localRemove(key: string) {
-	window.localStorage.removeItem(key);
+  window.localStorage.removeItem(key)
 }
 
 /**
@@ -36,7 +36,7 @@ export function localRemove(key: string) {
  * @returns {String}
  */
 export function localClear() {
-	window.localStorage.clear();
+  window.localStorage.clear()
 }
 
 /**
@@ -45,20 +45,20 @@ export function localClear() {
  * @returns {obj} 克隆后的对象
  */
 export function deepCopy<T>(obj: any): T {
-	let newObj: any;
-	try {
-		newObj = obj.push ? [] : {};
-	} catch (error) {
-		newObj = {};
-	}
-	for (let attr in obj) {
-		if (typeof obj[attr] === "object") {
-			newObj[attr] = deepCopy(obj[attr]);
-		} else {
-			newObj[attr] = obj[attr];
-		}
-	}
-	return newObj;
+  let newObj: any
+  try {
+    newObj = obj.push ? [] : {}
+  } catch (error) {
+    newObj = {}
+  }
+  for (let attr in obj) {
+    if (typeof obj[attr] === 'object') {
+      newObj[attr] = deepCopy(obj[attr])
+    } else {
+      newObj[attr] = obj[attr]
+    }
+  }
+  return newObj
 }
 
 /**
@@ -67,9 +67,9 @@ export function deepCopy<T>(obj: any): T {
  * @returns {string} 数据类型
  */
 export function isType(val: any) {
-	if (val === null) return "null";
-	if (typeof val !== "object") return typeof val;
-	else return Object.prototype.toString.call(val).slice(8, -1).toLocaleLowerCase();
+  if (val === null) return 'null'
+  if (typeof val !== 'object') return typeof val
+  else return Object.prototype.toString.call(val).slice(8, -1).toLocaleLowerCase()
 }
 
 /**
@@ -79,8 +79,8 @@ export function isType(val: any) {
  * @returns {number}
  */
 export function randomNum(min: number, max: number): number {
-	let num = Math.floor(Math.random() * (min - max) + max);
-	return num;
+  let num = Math.floor(Math.random() * (min - max) + max)
+  return num
 }
 
 /**
@@ -88,14 +88,14 @@ export function randomNum(min: number, max: number): number {
  * @returns {String} 语言
  */
 export function getBrowserLang() {
-	let browserLang = navigator.language ? navigator.language : navigator.browserLanguage;
-	let defaultBrowserLang = "";
-	if (browserLang.toLowerCase() === "cn" || browserLang.toLowerCase() === "zh" || browserLang.toLowerCase() === "zh-cn") {
-		defaultBrowserLang = "zh";
-	} else {
-		defaultBrowserLang = "en";
-	}
-	return defaultBrowserLang;
+  let browserLang = navigator.language ? navigator.language : navigator.browserLanguage
+  let defaultBrowserLang = ''
+  if (browserLang.toLowerCase() === 'cn' || browserLang.toLowerCase() === 'zh' || browserLang.toLowerCase() === 'zh-cn') {
+    defaultBrowserLang = 'zh'
+  } else {
+    defaultBrowserLang = 'en'
+  }
+  return defaultBrowserLang
 }
 
 /**
@@ -105,13 +105,13 @@ export function getBrowserLang() {
  * @returns {Array} 当前路由所对应的tabPane
  */
 export function getTabPane<T, U>(menuList: any[], path: U): T {
-	let result: any;
-	for (let item of menuList || []) {
-		if (item.path === path) result = item;
-		const res = getTabPane(item.children, path);
-		if (res) result = res;
-	}
-	return result;
+  let result: any
+  for (let item of menuList || []) {
+    if (item.path === path) result = item
+    const res = getTabPane(item.children, path)
+    if (res) result = res
+  }
+  return result
 }
 
 /**
@@ -119,11 +119,11 @@ export function getTabPane<T, U>(menuList: any[], path: U): T {
  * @param newArr 所有菜单数组
  */
 export function handleRouter(routerList: Menu.MenuOptions[], newArr: string[] = []) {
-	routerList.forEach((item: Menu.MenuOptions) => {
-		typeof item === "object" && item.path && newArr.push(item.path);
-		item.children && item.children.length && handleRouter(item.children, newArr);
-	});
-	return newArr;
+  routerList.forEach((item: Menu.MenuOptions) => {
+    typeof item === 'object' && item.path && newArr.push(item.path)
+    item.children && item.children.length && handleRouter(item.children, newArr)
+  })
+  return newArr
 }
 
 /**
@@ -134,9 +134,9 @@ export function handleRouter(routerList: Menu.MenuOptions[], newArr: string[] = 
  * @return {String} 格式化后的值
  * */
 export function defaultFormat(row: number, col: number, callValue: any) {
-	// 如果当前值为数组,使用 / 拼接（根据需求自定义）
-	if (isArray(callValue)) return callValue.length ? callValue.join(" / ") : "--";
-	return callValue ?? "--";
+  // 如果当前值为数组,使用 / 拼接（根据需求自定义）
+  if (isArray(callValue)) return callValue.length ? callValue.join(' / ') : '--'
+  return callValue ?? '--'
 }
 
 /**
@@ -147,7 +147,7 @@ export function defaultFormat(row: number, col: number, callValue: any) {
  * @return {String} 格式化后的值
  * */
 export function filterEnum(callValue: any, enumData: any[] = [], type?: string): string {
-	let filterData = enumData.find(item => item.value === callValue);
-	if (type == "tag") return filterData?.tagType ? filterData.tagType : "";
-	return filterData ? filterData.label : "--";
+  let filterData = enumData.find((item) => item.value === callValue)
+  if (type == 'tag') return filterData?.tagType ? filterData.tagType : ''
+  return filterData ? filterData.label : '--'
 }

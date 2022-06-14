@@ -1,5 +1,5 @@
-import { onUnmounted } from "vue";
-import * as echarts from "echarts";
+import { onUnmounted } from 'vue'
+import * as echarts from 'echarts'
 
 /**
  * @description 使用Echarts(只是为了添加图表响应式)
@@ -7,16 +7,16 @@ import * as echarts from "echarts";
  * @param option 绘制Echarts的参数(必传)
  * */
 export const useEcharts = (myChart: echarts.ECharts, option: echarts.EChartsCoreOption) => {
-	if (option && typeof option === "object") {
-		myChart.setOption(option);
-	}
-	const echartsResize = () => {
-		myChart && myChart.resize();
-	};
+  if (option && typeof option === 'object') {
+    myChart.setOption(option)
+  }
+  const echartsResize = () => {
+    myChart && myChart.resize()
+  }
 
-	window.addEventListener("resize", echartsResize, false);
+  window.addEventListener('resize', echartsResize, false)
 
-	onUnmounted(() => {
-		window.removeEventListener("resize", echartsResize);
-	});
-};
+  onUnmounted(() => {
+    window.removeEventListener('resize', echartsResize)
+  })
+}

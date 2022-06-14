@@ -10,12 +10,7 @@ module.exports = {
     }
   },
 
-  extends: [
-    'plugin:vue/vue3-recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
-    'plugin:prettier/recommended'
-  ],
+  extends: ['plugin:vue/vue3-recommended', 'plugin:@typescript-eslint/recommended', 'prettier', 'plugin:prettier/recommended'],
 
   rules: {
     // eslint (http://eslint.cn/docs/rules)
@@ -34,6 +29,7 @@ module.exports = {
     'space-before-function-paren': 'off',
     quotes: ['error', 'single'],
     'comma-dangle': ['error', 'never'],
+    'no-unused-vars': ['off'],
 
     // typeScript (https://typescript-eslint.io/rules)
     '@typescript-eslint/no-unused-vars': 'error', // 禁止定义未使用的变量

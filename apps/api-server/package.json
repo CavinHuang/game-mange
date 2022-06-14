@@ -13,6 +13,7 @@
   "dependencies": {
     "@koa/cors": "^3.3.0",
     "@koa/multer": "^3.0.0",
+    "apify": "^2.3.2",
     "chalk": "^4.1.2",
     "co-body": "^6.1.0",
     "fs-extra": "^10.1.0",

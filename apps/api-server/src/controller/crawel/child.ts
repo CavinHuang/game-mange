@@ -1,5 +1,5 @@
-const Apify = require('apify');
-const fs = require('fs');
+import Apify from 'apify'
+import fs from 'fs'
 
 const urls = [
   'https://www.jd.com/?ds_rl=1272299&cu=true&utm_source=google-search&utm_medium=cpc&utm_campaign=t_262767352_googlesearch&utm_term=kwd-362776698237_0_bd6290d047e84576a5d6947ff0f8ecf1',

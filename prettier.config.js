@@ -1,6 +1,4 @@
 module.exports = {
-  // 一行最多 80 字符
-  printWidth: 80,
   // 使用 2 个空格缩进
   tabWidth: 2,
   // 不使用 tab 缩进，而使用空格
@@ -33,5 +31,13 @@ module.exports = {
   // 根据显示样式决定 html 要不要折行
   htmlWhitespaceSensitivity: 'css',
   // 换行符使用 lf
-  endOfLine: 'auto'
-};
+  endOfLine: 'auto',
+  // 超过最大值换行
+  printWidth: 130,
+  // 换行符使用 lf 结尾是 可选值"<auto|lf|crlf|cr>"
+  // 这两个选项可用于格式化以给定字符偏移量（分别包括和不包括）开始和结束的代码
+  rangeStart: 0,
+  rangeEnd: Infinity,
+  // Vue文件脚本和样式标签缩进
+  vueIndentScriptAndStyle: false
+}
